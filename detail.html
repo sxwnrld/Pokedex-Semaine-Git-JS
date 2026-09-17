@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,38 +7,41 @@
     <title>Detail-Carte</title>
 </head>
 <body>
-    <h1>Détails de la carte</h1>
+    <header>
+        <h1>Détails de la carte</h1>
+    </header>
+    <h2>Salamèche</h2>
     <div class="details-carte"> 
-        <h2>Salamèche</h2> 
+        
+        <img src="salameche.png" class="pokemon-image" alt="Salamèche">
         <div class="données-pokemon">
-            <img src="salameche.png" alt="Salamèche">
             <table>
                 <tr>
                     <th> Type: </th>
-                    <td>Feu</td>    
+                    <td class="type">Feu</td>    
                 </tr>
                 <tr>
-                    <th> PV: </th>
-                    <td>60</td>
+                    <th>PV:</th>
+                    <td class="pv">60</td>
                 </tr>
                 <tr>
-                    <th> Taille: </th>
-                    <td>160</td>
+                    <th>Taille:</th>
+                    <td class="taille">160</td>
                 </tr>
                 <tr>
-                    <th> Poids: </th>
-                    <td>90</td>
+                    <th>Poids:</th>
+                    <td class="poids">90</td>
                 </tr>
                 <tr>
-                    <th> Attaque: </th>
-                    <td>52</td>
+                    <th>Attaque:</th>
+                    <td class="attaque">52</td>
                 </tr>
                 <tr>
-                    <th> Défense: </th>
-                    <td>43</td>
+                    <th>Défense:</th>
+                    <td class="défense">43</td>
                 </tr>
             </table>
-            <button class="favorite-btn" data-id="${pokemon.id}" type="button" aria-label="Ajouter aux favoris">Ajoutez au favoris</button>
+            <button class="favorite-btn" data-id="${pokemon.id}" type="button" aria-label="Ajouter aux favoris">Ajouter aux favoris</button>
         </div>
     </div>
 </body>

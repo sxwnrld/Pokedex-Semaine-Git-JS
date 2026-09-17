@@ -3,9 +3,26 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin: 0;
+    background-color: rgba(253, 246, 233)
 }   
 
+header{
+    background-color: #ce3838;
+}
+
 h1{
+    text-align: center;
+    color: rgb(252, 252, 252);
+
+}
+
+h2{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.pokemon-image{
     text-align: center;
 }
 
@@ -14,14 +31,21 @@ h1{
     justify-content: center;
     align-items: center;
     background-color: #d3d2d2;
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    max-width: 800px;
+    max-width: 800px;    /* Réduit la largeur maximale du bloc (ajustez les pixels selon vos goûts) */
+    width: 40%;          /* Permet au bloc de rester responsive sur les petits écrans */
+    margin: 0 auto;
+    padding: 20px;
+    
+    
 }
 
 .données-pokemon {
+    text-align: right;
     display: flex;
-    text-align: center;
-
+    flex-direction: column;
+    gap: 25px;
 }
 
 img{
@@ -29,11 +53,19 @@ img{
     height: 300px;
 }
 
-tr{
-    
-}
 
 .favorite-btn{
     height: 50px;
     border-radius: 10px;
+    font-size: 12px;
+    padding: 10px;
+    box-shadow: 4px 6px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid #ce3838;
+    border-color: #ce3838;
+    cursor: pointer;
+
+}
+
+.favorite-btn:hover{
+    /* animation: pulse 0.5s ease; */
 }
