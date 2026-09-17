@@ -1,1 +1,1 @@
-# Pok-dex-Semaine-Git-JS
+# Pokedex-Semaine-Git-JS
