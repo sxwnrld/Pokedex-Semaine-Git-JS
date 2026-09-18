@@ -9,6 +9,21 @@ body{
 
 header{
     background-color: #ce3838;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.retour{
+    text-decoration:none;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    align-items: center;
+    position: absolute;
+    left: 20px; 
 }
 
 h1{
@@ -69,10 +84,33 @@ img{
     border-color: #ce3838;
     cursor: pointer;
     transition: transform 0.2s ease;
+    font-size: 15px;
 }
 
 
 .favorite-btn:hover{
     transform: scale(1.05);
+    
+}
+
+th, td{
+    border-bottom: 1px solid #696969;
+    padding: 8px;
+}
+
+.données-pokemon td{
+    text-align: right;
+    
+}
+
+.données-pokemon th{
+    text-align: left;
+}
+
+table{border-collapse: collapse;
+}
+
+.type{
+    text-transform: capitalize;
 }
 
