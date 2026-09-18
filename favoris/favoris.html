@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokédex - Mes favoris</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="favoris.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Pokédex
+        </a>
+
+        <nav class="nav-links">
+
+           <a href="../index.html">Accueil</a>
+<a href="../pokemon.html">Pokémon</a>
+
+            <a href="favoris.html" class="active">
+                Favoris
+            </a>
+
+        </nav>
+
+        <button
+            id="theme-toggle"
+            class="theme-button"
+            aria-label="Changer le thème"
+            title="Changer le thème"
+        >
+            ☾
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         CONTENU
+    ========================== -->
+
+    <main>
+
+        <!-- HEADER -->
+
+        <section class="page-header">
+
+            <span class="page-label">
+                MA COLLECTION
+            </span>
+
+            <h1>
+                Mes favoris
+            </h1>
+
+            <p>
+                Retrouve ici tous les Pokémon que tu as ajoutés à tes favoris.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             FAVORIS INFO
+        ========================== -->
+
+        <section class="favorites-info">
+
+            <div class="favorites-count">
+
+                <span id="favorites-count">
+                    0
+                </span>
+
+                <p>
+                    Pokémon favoris
+                </p>
+
+            </div>
+
+
+            <a
+                href="pokemon.html"
+                class="explore-button"
+            >
+                + Ajouter des Pokémon
+            </a>
+
+        </section>
+
+
+        <!-- =========================
+             LOADING
+        ========================== -->
+
+        <div
+            id="loading"
+            class="loading"
+        >
+
+            <div class="loader"></div>
+
+            <p>
+                Chargement de vos favoris...
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             LISTE FAVORIS
+        ========================== -->
+
+        <section
+            id="favorites-container"
+            class="pokemon-grid"
+        >
+        </section>
+
+
+        <!-- =========================
+             AUCUN FAVORI
+        ========================== -->
+
+        <section
+            id="empty-favorites"
+            class="empty-favorites hidden"
+        >
+
+            <div class="empty-icon">
+                ★
+            </div>
+
+            <h2>
+                Aucun favori pour le moment
+            </h2>
+
+            <p>
+                Explore le Pokédex et ajoute tes Pokémon préférés
+                en cliquant sur l'étoile.
+            </p>
+
+            <a
+                href="pokemon.html"
+                class="explore-button"
+            >
+                Explorer les Pokémon →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Pokédex
+        </div>
+
+        <p>
+            Projet  — Pokédex interactif
+        </p>
+
+        <p>
+            Données fournies par la PokéAPI
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+   <script src="../js/theme.js"></script>
+<script src="favoris.js"></script>
+
+</body>
