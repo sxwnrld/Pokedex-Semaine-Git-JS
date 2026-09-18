@@ -5,190 +5,326 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pokédex</title>
+    <title>Pokédex - Accueil</title>
 
     <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="accueil/accueil.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
-    <header>
+    <header class="navbar">
 
-        <div class="header-top">
+        <a href="index.html" class="logo">
+            Pokédex
+        </a>
 
-            <div class="lens"></div>
+        <nav class="nav-links">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="pokemon.html">Pokémon</a>
+<a href="favoris/favoris.html">Favoris</a>
+        </nav>
 
-            <h1>POKÉDEX</h1>
-
-            <div class="dots">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-        </div>
-
-
-        <div class="controls">
-
-            <!-- Barre de recherche -->
-
-            <input
-                type="text"
-                id="search"
-                placeholder="Rechercher un Pokémon..."
-                autocomplete="off"
-            >
-
-
-            <!-- Filtre par type -->
-
-            <select id="type-filter">
-
-                <option value="all">
-                    Tous les types
-                </option>
-
-            </select>
-
-
-            <!-- Compteur favoris -->
-
-            <div class="fav-counter">
-
-                ⭐ Favoris :
-                <strong id="favorites-count">0</strong>
-
-            </div>
-
-        </div>
+        <button
+            id="theme-toggle"
+            class="theme-button"
+            aria-label="Changer le thème"
+            title="Changer le thème"
+        >
+            ☾
+        </button>
 
     </header>
 
 
-    <!-- ================= CONTENU ================= -->
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <main>
 
-        <!-- Message de chargement / erreur / recherche vide -->
+        <section class="hero">
 
-        <div
-            id="status-message"
-            class="hidden"
-        ></div>
+            <div class="hero-content">
+
+                <span class="hero-tag">
+                    POKÉDEX INTERACTIF
+                </span>
+
+                <h1>
+                    Explorez le
+                    <span>monde Pokémon.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Découvrez le Monde des Pokémons, leurs types,
+                    leurs statistiques et leurs caractéristiques
+                    grâce à notre Pokédex interactif.
+                </p>
 
 
-        <!-- ================= POKÉMON ================= -->
+                <div class="hero-buttons">
 
-        <section class="pokemon-section">
+                    <!-- Aller vers le Pokédex -->
 
-            <div
-                id="pokemon-list"
-                class="grid"
-            ></div>
+                    <a
+                        href="pokemon.html"
+                        class="button primary"
+                    >
+                        Explorer les Pokémons
+                        <span>→</span>
+                    </a>
+
+
+                    <!-- Aller vers les favoris -->
+
+                    <a
+                        href="favoris.html"
+                        class="button secondary"
+                    >
+                        ★ Mes favoris
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 POKEMONS MIS EN AVANT
+            ========================== -->
+
+            <div class="hero-pokemon">
+
+                <div class="pokemon-circle"></div>
+
+                <div class="pokemon-shadow"></div>
+
+                <img
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/25.png"
+                    alt="Pikachu"
+                >
+
+                <div class="pokemon-name">
+
+                    <span>#025</span>
+
+                    <strong>Pikachu</strong>
+
+                </div>
+
+            </div>
 
         </section>
 
 
-        <!-- ================= FAVORIS ================= -->
+        <!-- =========================
+             STATISTIQUES
+        ========================== -->
 
-        <section
-            id="favorites"
-            class="favorites-section"
-        >
+        <section class="stats">
 
-            <div class="section-title">
+            <div class="stat-card">
 
-                <h2>Mes favoris</h2>
+                <span class="stat-number">
+                    1025+
+                </span>
 
-                <span>
-                    <strong id="favorites-count-bottom">0</strong>
+                <span class="stat-label">
                     Pokémon
                 </span>
 
             </div>
 
 
-            <!-- Cartes des favoris -->
+            <div class="stat-card">
 
-            <div
-                id="favorites-list"
-                class="grid"
-            ></div>
+                <span class="stat-number">
+                    18
+                </span>
+
+                <span class="stat-label">
+                    Types
+                </span>
+
+            </div>
 
 
-            <!-- Aucun favori -->
+            <div class="stat-card">
 
-            <div
-                id="no-favorites"
-                class="no-favorites hidden"
-            >
+                <span class="stat-number">
+                    ★
+                </span>
 
-                <div class="empty-icon">☆</div>
+                <span class="stat-label">
+                    Favoris
+                </span>
 
-                <h3>Aucun favori</h3>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FONCTIONNALITÉS
+        ========================== -->
+
+        <section class="features">
+
+            <div class="section-header">
+
+                <span>
+                    FONCTIONNALITÉS
+                </span>
+
+                <h2>
+                    Tout ce qu'il vous faut.
+                </h2>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <!-- Pokédex -->
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ◈
+                    </div>
+
+                    <h3>
+                        Pokédex complet
+                    </h3>
+
+                    <p>
+                        Parcourez les Pokémon disponibles
+                        et découvrez leurs informations.
+                    </p>
+
+                    <a href="pokemon.html">
+                        Explorer →
+                    </a>
+
+                </article>
+
+
+                <!-- Informations -->
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ⓘ
+                    </div>
+
+                    <h3>
+                        Informations détaillées
+                    </h3>
+
+                    <p>
+                        Consultez les types, statistiques,
+                        tailles et caractéristiques de chaque Pokémon.
+                    </p>
+
+                    <a href="pokemon.html">
+                        Découvrir →
+                    </a>
+
+                </article>
+
+
+                <!-- Favoris -->
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        ★
+                    </div>
+
+                    <h3>
+                        Vos favoris
+                    </h3>
+
+                    <p>
+                        Retrouvez facilement tous les Pokémon
+                        que vous avez ajoutés à vos favoris.
+                    </p>
+
+                    <a href="favoris.html">
+                        Voir mes favoris →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+                FAVORIS
+        ========================== -->
+
+        <section class="cta">
+
+            <div>
+
+                <span>
+                    VOTRE COLLECTION
+                </span>
+
+                <h2>
+                    Retrouvez vos favoris.
+                </h2>
 
                 <p>
-                    Ajoutez des Pokémon à vos favoris
-                    pour les retrouver ici.
+                    Accédez rapidement aux Pokémon
+                    que vous avez enregistrés.
                 </p>
 
             </div>
+
+
+            <a
+                href="favoris.html"
+                class="button primary"
+            >
+                ★ Mes favoris
+            </a>
 
         </section>
 
     </main>
 
 
-    <!-- ================= MODALE ================= -->
-
-    <div
-        id="overlay"
-        class="overlay hidden"
-    >
-
-        <div class="modal">
-
-            <div class="modal-screen">
-
-                <button
-                    id="close-modal"
-                    class="close-btn"
-                    type="button"
-                    aria-label="Fermer"
-                >
-                    ✕
-                </button>
-
-
-                <!-- Les détails seront ajoutés par app.js -->
-
-                <div id="modal-content"></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ================= FOOTER ================= -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer>
 
-        Données fournies par la
-        <strong>PokéAPI</strong> 
+        <div class="footer-logo">
+            Pokédex
+        </div>
+
+        <p>
+            Projet étudiant — Pokédex interactif
+        </p>
+
+        <p>
+            Données fournies par la PokéAPI
+        </p>
 
     </footer>
 
 
-    <!-- ================= JAVASCRIPT ================= -->
-
-    <script src="js/Pokemon.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/favoris.js"></script>
+    <script src="js/theme.js"></script>
+<script src="accueil/accueil.js"></script>
 
 </body>
 
