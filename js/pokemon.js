@@ -2,7 +2,7 @@
 // POKÉDEX - POKEMON.JS
 // ========================================
 
-const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=1025";
+const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=200";
 
 const pokemonContainer = document.getElementById("pokemon-container");
 const searchInput = document.getElementById("search-input");
