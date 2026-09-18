@@ -1,0 +1,976 @@
+/* =====================================
+   VARIABLES
+===================================== */
+
+:root {
+
+    --background: #f5f5f7;
+
+    --surface: #ffffff;
+
+    --surface-hover: #eeeeF2;
+
+    --text: #111111;
+
+    --text-secondary: #6b6b73;
+
+    --border: rgba(0, 0, 0, 0.08);
+
+    --primary: #111111;
+
+    --primary-text: #ffffff;
+
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+    --transition: 0.25s ease;
+}
+
+
+/* =====================================
+   DARK MODE
+===================================== */
+
+body.dark {
+
+    --background: #08080b;
+
+    --surface: #111116;
+
+    --surface-hover: #19191f;
+
+    --text: #ffffff;
+
+    --text-secondary: #9999a3;
+
+    --border: rgba(255, 255, 255, 0.09);
+
+    --primary: #ffffff;
+
+    --primary-text: #08080b;
+
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar {
+
+    height: 80px;
+
+    width: 100%;
+
+    padding: 0 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background: var(--background);
+
+    border-bottom: 1px solid var(--border);
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* LOGO */
+
+.logo {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+/* NAVIGATION */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+.nav-links a {
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+
+.nav-links a:hover {
+
+    color: var(--text);
+}
+
+
+.nav-links a.active {
+
+    color: var(--text);
+}
+
+
+/* =====================================
+   DARK MODE BUTTON
+===================================== */
+
+.theme-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 19px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.theme-button:hover {
+
+    transform: rotate(15deg) scale(1.05);
+
+    background: var(--surface-hover);
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero {
+
+    max-width: 1250px;
+
+    min-height: 650px;
+
+    margin: auto;
+
+    padding: 70px 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+/* HERO TEXT */
+
+.hero-content {
+
+    max-width: 650px;
+}
+
+
+.hero-tag {
+
+    display: inline-block;
+
+    margin-bottom: 25px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+}
+
+
+.hero h1 {
+
+    margin-bottom: 30px;
+
+    font-size: clamp(52px, 7vw, 92px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--text-secondary);
+}
+
+
+.hero-description {
+
+    max-width: 520px;
+
+    margin-bottom: 35px;
+
+    color: var(--text-secondary);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================
+   HERO BUTTONS
+===================================== */
+
+.hero-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 23px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.button:hover {
+
+    transform: translateY(-3px);
+}
+
+
+.button.primary {
+
+    background: var(--primary);
+
+    color: var(--primary-text);
+}
+
+
+.button.secondary {
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+}
+
+
+/* =====================================
+   POKEMON
+===================================== */
+
+.hero-pokemon {
+
+    width: 470px;
+
+    height: 470px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.pokemon-circle {
+
+    position: absolute;
+
+    width: 350px;
+
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+}
+
+
+.hero-pokemon img {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 420px;
+
+    filter:
+        drop-shadow(
+            0 35px 30px
+            rgba(0, 0, 0, 0.3)
+        );
+
+    animation:
+        floating 4s ease-in-out infinite;
+}
+
+
+.pokemon-shadow {
+
+    position: absolute;
+
+    bottom: 60px;
+
+    width: 190px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    filter: blur(15px);
+}
+
+
+.pokemon-name {
+
+    position: absolute;
+
+    right: 15px;
+
+    bottom: 5px;
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    text-align: right;
+}
+
+
+.pokemon-name span {
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.pokemon-name strong {
+
+    font-size: 24px;
+
+    font-weight: 800;
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+    }
+
+    50% {
+
+        transform: translateY(-18px);
+    }
+}
+
+
+/* =====================================
+   STATS
+===================================== */
+
+.stats {
+
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    padding: 20px 40px 80px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.stat-card {
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.stat-card:hover {
+
+    transform: translateY(-5px);
+
+    background: var(--surface-hover);
+}
+
+
+.stat-number {
+
+    font-size: 35px;
+
+    font-weight: 900;
+}
+
+
+.stat-label {
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================
+   FEATURES
+===================================== */
+
+.features {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 70px 40px;
+}
+
+
+.section-header {
+
+    margin-bottom: 40px;
+}
+
+
+.section-header span {
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+.section-header h2 {
+
+    margin-top: 12px;
+
+    font-size: 42px;
+
+    letter-spacing: -2px;
+}
+
+
+.feature-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.feature-card {
+
+    min-height: 270px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.feature-card:hover {
+
+    transform: translateY(-7px);
+
+    background: var(--surface-hover);
+
+    box-shadow: var(--shadow);
+}
+
+
+.feature-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: var(--background);
+
+    border: 1px solid var(--border);
+
+    font-size: 21px;
+}
+
+
+.feature-card h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 21px;
+}
+
+
+.feature-card p {
+
+    margin-bottom: 25px;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+.feature-card a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================
+   CTA
+===================================== */
+
+.cta {
+
+    max-width: 1150px;
+
+    margin: 80px auto;
+
+    padding: 50px;
+
+    border-radius: 25px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.cta span {
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+.cta h2 {
+
+    margin: 10px 0;
+
+    font-size: 42px;
+
+    letter-spacing: -2px;
+}
+
+
+.cta p {
+
+    color: var(--text-secondary);
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+
+    padding: 50px 6%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+.footer-logo {
+
+    color: var(--text);
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 900px) {
+
+    .hero {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding-top: 90px;
+    }
+
+
+    .hero-description {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+
+    .hero-pokemon {
+
+        width: 380px;
+
+        height: 380px;
+    }
+
+
+    .hero-pokemon img {
+
+        width: 340px;
+    }
+
+
+    .pokemon-circle {
+
+        width: 280px;
+
+        height: 280px;
+    }
+
+
+    .feature-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .cta {
+
+        margin-left: 40px;
+
+        margin-right: 40px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        padding: 0 20px;
+    }
+
+
+    .nav-links {
+
+        gap: 15px;
+    }
+
+
+    .nav-links a {
+
+        font-size: 12px;
+    }
+
+
+    .theme-button {
+
+        width: 36px;
+
+        height: 36px;
+    }
+
+
+    .hero {
+
+        padding:
+            60px 20px
+            30px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .hero-description {
+
+        font-size: 16px;
+    }
+
+
+    .hero-pokemon {
+
+        width: 300px;
+
+        height: 300px;
+    }
+
+
+    .hero-pokemon img {
+
+        width: 270px;
+    }
+
+
+    .pokemon-circle {
+
+        width: 220px;
+
+        height: 220px;
+    }
+
+
+    .stats {
+
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+    }
+
+
+    .features {
+
+        padding:
+            60px 20px;
+    }
+
+
+    .section-header h2 {
+
+        font-size: 34px;
+    }
+
+
+    .cta {
+
+        margin:
+            50px 20px;
+
+        padding: 30px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .cta h2 {
+
+        font-size: 34px;
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
