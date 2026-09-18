@@ -1,7 +1,5 @@
 # Pokedex
 
-Projet Pokedex-Semaine-Git-JS
-
 ## Description
 
 Ce projet consiste à créer un Pokédex permettant de consulter les différents Pokémon grâce à l'API PokéAPI.
