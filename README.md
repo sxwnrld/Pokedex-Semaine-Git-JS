@@ -25,6 +25,6 @@ Ce projet consiste à créer un Pokédex permettant de consulter les différents
 
 ## Installation
 
-1. Cloner le projet :
+ Cloner le projet :
 ```bash
 git clone <https://github.com/sxwnrld/Pokedex-Semaine-Git-JS.git>
