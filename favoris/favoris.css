@@ -623,3 +623,48 @@ body.dark footer {
         font-size: 28px;
     }
 }
+/* ========================================
+   MODE SOMBRE - FAVORIS
+======================================== */
+
+body.dark .card {
+    background: #1a1d25;
+    border-color: #2d3140;
+    color: #ffffff;
+}
+
+body.dark .card h3 {
+    color: #ffffff;
+}
+
+body.dark .card .pokemon-id {
+    color: #9ca3af;
+}
+
+body.dark .card .types {
+    color: #ffffff;
+}
+
+body.dark .card .type {
+    color: #ffffff;
+}
+
+body.dark .favorites-info {
+    color: #ffffff;
+}
+
+body.dark .page-header p {
+    color: #ffffff;
+}
+
+body.dark .empty-favorites {
+    color: #ffffff;
+}
+
+body.dark .empty-favorites h2 {
+    color: #ffffff;
+}
+
+body.dark .empty-favorites p {
+    color: #b8beca;
+}
