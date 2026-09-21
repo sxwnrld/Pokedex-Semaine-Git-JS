@@ -1,8 +1,9 @@
+
 // ========================================
 // POKÉDEX - POKEMON.JS
 // ========================================
 
-const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=200";
+const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=155";
 
 const pokemonContainer = document.getElementById("pokemon-container");
 const searchInput = document.getElementById("search-input");
@@ -31,11 +32,11 @@ function saveFavorites(favorites) {
 }
 
 function isFavorite(id) {
-    return getFavorites().includes(id);
+    return getFavorites().map(Number).includes(Number(id));
 }
 
 function toggleFavorite(id) {
-    let favorites = getFavorites();
+    let favorites = getFavorites().map(Number);
 
     if (favorites.includes(id)) {
         favorites = favorites.filter((pokemonId) => pokemonId !== id);
@@ -49,11 +50,48 @@ function toggleFavorite(id) {
 }
 
 // ========================================
+// RÉCUPÉRATION DU NOM FRANÇAIS
+// ========================================
+
+async function getFrenchName(id) {
+
+    try {
+
+        const response = await fetch(
+            `https://pokeapi.co/api/v2/pokemon-species/${id}`
+        );
+
+        if (!response.ok) {
+            return null;
+        }
+
+        const species = await response.json();
+
+        const frenchName = species.names.find(
+            (name) => name.language.name === "fr"
+        );
+
+        return frenchName ? frenchName.name : null;
+
+    } catch (error) {
+
+        console.error(
+            `Impossible de récupérer le nom français du Pokémon ${id}`,
+            error
+        );
+
+        return null;
+    }
+}
+
+// ========================================
 // RÉCUPÉRATION DES POKÉMON
 // ========================================
 
 async function loadPokemon() {
+
     try {
+
         loading.style.display = "block";
         pokemonContainer.innerHTML = "";
         noResult.style.display = "none";
@@ -61,16 +99,30 @@ async function loadPokemon() {
         const response = await fetch(API_URL);
 
         if (!response.ok) {
-            throw new Error("Erreur lors de la récupération des Pokémon.");
+            throw new Error(
+                "Erreur lors de la récupération des Pokémon."
+            );
         }
 
         const data = await response.json();
 
         // Récupération des détails de chaque Pokémon
         allPokemon = await Promise.all(
+
             data.results.map(async (pokemon) => {
+
                 const response = await fetch(pokemon.url);
-                return await response.json();
+                const pokemonData = await response.json();
+
+                // Récupération automatique du nom français
+                const frenchName = await getFrenchName(
+                    pokemonData.id
+                );
+
+                pokemonData.frenchName =
+                    frenchName || capitalize(pokemonData.name);
+
+                return pokemonData;
             })
         );
 
@@ -82,6 +134,7 @@ async function loadPokemon() {
         renderPokemon(allPokemon);
 
     } catch (error) {
+
         console.error(error);
 
         loading.style.display = "none";
@@ -89,7 +142,9 @@ async function loadPokemon() {
         pokemonContainer.innerHTML = `
             <div class="error-message">
                 <h2>Impossible de charger le Pokédex</h2>
-                <p>Vérifie ta connexion Internet puis recharge la page.</p>
+                <p>
+                    Vérifie ta connexion Internet puis recharge la page.
+                </p>
             </div>
         `;
     }
@@ -103,10 +158,13 @@ function renderPokemon(pokemonList) {
 
     pokemonContainer.innerHTML = "";
 
-    pokemonCount.textContent = `${pokemonList.length} Pokémon`;
+    pokemonCount.textContent =
+        `${pokemonList.length} Pokémon`;
 
     if (pokemonList.length === 0) {
+
         noResult.style.display = "block";
+
         return;
     }
 
@@ -117,12 +175,14 @@ function renderPokemon(pokemonList) {
     pokemonList.forEach((pokemon) => {
 
         const card = document.createElement("article");
+
         card.className = "pokemon-card";
 
         const favorite = isFavorite(pokemon.id);
 
         const types = pokemon.types
             .map((typeInfo) => {
+
                 const typeName = typeInfo.type.name;
 
                 return `
@@ -134,11 +194,20 @@ function renderPokemon(pokemonList) {
             .join("");
 
         card.innerHTML = `
+
             <button
                 class="favorite-btn ${favorite ? "active" : ""}"
                 data-id="${pokemon.id}"
-                aria-label="${favorite ? "Retirer des favoris" : "Ajouter aux favoris"}"
-                title="${favorite ? "Retirer des favoris" : "Ajouter aux favoris"}"
+                aria-label="${
+                    favorite
+                        ? "Retirer des favoris"
+                        : "Ajouter aux favoris"
+                }"
+                title="${
+                    favorite
+                        ? "Retirer des favoris"
+                        : "Ajouter aux favoris"
+                }"
             >
                 ${favorite ? "★" : "☆"}
             </button>
@@ -148,32 +217,44 @@ function renderPokemon(pokemonList) {
             </span>
 
             <img
-                src="${pokemon.sprites.other["official-artwork"].front_default || pokemon.sprites.front_default}"
-                alt="${pokemon.name}"
+                src="${
+                    pokemon.sprites.other["official-artwork"]
+                        .front_default ||
+                    pokemon.sprites.front_default
+                }"
+                alt="${pokemon.frenchName}"
                 loading="lazy"
             >
 
-            <h2>${capitalize(pokemon.name)}</h2>
+            <h2>${pokemon.frenchName}</h2>
 
             <div class="pokemon-types">
                 ${types}
             </div>
 
             <div class="pokemon-stats">
+
                 <div>
                     <span>PV</span>
-                    <strong>${pokemon.stats[0].base_stat}</strong>
+                    <strong>
+                        ${pokemon.stats[0].base_stat}
+                    </strong>
                 </div>
 
                 <div>
                     <span>ATK</span>
-                    <strong>${pokemon.stats[1].base_stat}</strong>
+                    <strong>
+                        ${pokemon.stats[1].base_stat}
+                    </strong>
                 </div>
 
                 <div>
                     <span>DEF</span>
-                    <strong>${pokemon.stats[2].base_stat}</strong>
+                    <strong>
+                        ${pokemon.stats[2].base_stat}
+                    </strong>
                 </div>
+
             </div>
         `;
 
@@ -184,6 +265,7 @@ function renderPokemon(pokemonList) {
 
     // Événements des étoiles
     document.querySelectorAll(".favorite-btn").forEach((button) => {
+
         button.addEventListener("click", (event) => {
 
             event.stopPropagation();
@@ -207,16 +289,33 @@ function getFilteredPokemon() {
 
     return allPokemon.filter((pokemon) => {
 
-        // Recherche par nom
-        const matchesSearch =
-            pokemon.name.toLowerCase().includes(search) ||
+        // Recherche par nom français
+        const matchesFrenchName =
+            pokemon.frenchName
+                .toLowerCase()
+                .includes(search);
+
+        // Recherche également avec le nom anglais
+        const matchesEnglishName =
+            pokemon.name
+                .toLowerCase()
+                .includes(search);
+
+        // Recherche par numéro
+        const matchesId =
             String(pokemon.id).includes(search);
+
+        const matchesSearch =
+            matchesFrenchName ||
+            matchesEnglishName ||
+            matchesId;
 
         // Filtre par type
         const matchesType =
             currentType === "all" ||
             pokemon.types.some(
-                (typeInfo) => typeInfo.type.name === currentType
+                (typeInfo) =>
+                    typeInfo.type.name === currentType
             );
 
         return matchesSearch && matchesType;
@@ -228,20 +327,32 @@ function getFilteredPokemon() {
 // ========================================
 
 function searchPokemon() {
-    const filteredPokemon = getFilteredPokemon();
+
+    const filteredPokemon =
+        getFilteredPokemon();
 
     renderPokemon(filteredPokemon);
 }
 
-searchButton.addEventListener("click", searchPokemon);
+searchButton.addEventListener(
+    "click",
+    searchPokemon
+);
 
-searchInput.addEventListener("input", searchPokemon);
+searchInput.addEventListener(
+    "input",
+    searchPokemon
+);
 
-searchInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        searchPokemon();
+searchInput.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key === "Enter") {
+            searchPokemon();
+        }
     }
-});
+);
 
 // ========================================
 // FILTRES PAR TYPE
@@ -261,7 +372,9 @@ typeButtons.forEach((button) => {
         // Active le bouton sélectionné
         button.classList.add("active");
 
-        renderPokemon(getFilteredPokemon());
+        renderPokemon(
+            getFilteredPokemon()
+        );
     });
 });
 
@@ -270,12 +383,15 @@ typeButtons.forEach((button) => {
 // ========================================
 
 function capitalize(text) {
-    return text.charAt(0).toUpperCase() + text.slice(1);
+
+    return text.charAt(0).toUpperCase() +
+        text.slice(1);
 }
 
 function translateType(type) {
 
     const types = {
+
         normal: "Normal",
         fire: "Feu",
         water: "Eau",
@@ -294,6 +410,7 @@ function translateType(type) {
         dark: "Obscur",
         steel: "Acier",
         fairy: "Fée"
+
     };
 
     return types[type] || type;
