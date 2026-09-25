@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="detail.css">
+    <title>Detail-Carte</title>
+</head>
+<body>
+    <header>
+        <a class="retour" href="index.php">←  Retour à la collection</a>
+        <h1>Détails de la carte</h1>
+     </header>    
+    <h2 class='pokemon-name'></h2>
+    <div class="details-carte"> 
+        
+        <img src="" class="pokemon-image" alt="Pokemon">
+        <div class="données-pokemon">
+            <table>
+                <tr>
+                    <th> Type : </th>
+                    <td class="type"></td>    
+                </tr>
+                <tr>
+                    <th>PV :</th>
+                    <td class="pv"></td>
+                </tr>
+                <tr>
+                    <th>Taille :</th>
+                    <td class="taille"></td>
+                </tr>
+                <tr>
+                    <th>Poids :</th>
+                    <td class="poids"></td>
+                </tr>
+                <tr>
+                    <th>Attaque :</th>
+                    <td class="attaque"></td>
+                </tr>
+                <tr>
+                    <th>Défense :</th>
+                    <td class="défense"></td>
+                </tr>
+            </table>
+            <button class="favorite-btn" data-id="${pokemon.id}" type="button" aria-label="Ajouter aux favoris">Ajouter aux favoris</button>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="js/pokemon.js"></script>
+</body>
+</html>
