@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokédex - Pokémon</title>
+
+    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pokemon.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Pokédex
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Accueil
+            </a>
+
+            <a href="pokemon.html" class="active">
+                Pokémon
+            </a>
+
+            <a href="favoris/favoris.html">Favoris</a>
+
+        </nav>
+
+        <button
+            id="theme-toggle"
+            class="theme-button"
+            aria-label="Changer le thème"
+            title="Changer le thème"
+        >
+            ☾
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         CONTENU
+    ========================== -->
+
+    <main>
+
+        <!-- TITRE -->
+
+        <section class="page-header">
+
+            <span class="page-label">
+                POKÉDEX
+            </span>
+
+            <h1>
+                Tous les Pokémon
+            </h1>
+
+
+        </section>
+
+
+        <!-- =========================
+             RECHERCHE
+        ========================== -->
+
+        <section class="search-section">
+
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Rechercher un Pokémon..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="search-button"
+                    type="button"
+                >
+                    Rechercher
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FILTRES
+        ========================== -->
+
+        <section class="filters">
+
+            <button
+                class="filter-btn active"
+                data-type="all"
+            >
+                Tous
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="normal"
+            >
+                Normal
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="fire"
+            >
+                Feu
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="water"
+            >
+                Eau
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="electric"
+            >
+                Électrique
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="grass"
+            >
+                Plante
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="ice"
+            >
+                Glace
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="fighting"
+            >
+                Combat
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="poison"
+            >
+                Poison
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="ground"
+            >
+                Sol
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="flying"
+            >
+                Vol
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="psychic"
+            >
+                Psy
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="bug"
+            >
+                Insecte
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="rock"
+            >
+                Roche
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="ghost"
+            >
+                Spectre
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="dragon"
+            >
+                Dragon
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="dark"
+            >
+                Ténèbres
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="steel"
+            >
+                Acier
+            </button>
+
+            <button
+                class="filter-btn"
+                data-type="fairy"
+            >
+                Fée
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             COMPTEUR
+        ========================== -->
+
+        <div class="results-info">
+
+            <span id="pokemon-count">
+                Chargement des Pokémon...
+            </span>
+
+        </div>
+
+
+        <!-- =========================
+             LOADING
+        ========================== -->
+
+        <div
+            id="loading"
+            class="loading"
+        >
+            <div class="loader"></div>
+
+            <p>
+                Chargement du Pokédex...
+            </p>
+        </div>
+
+
+        <!-- =========================
+             LISTE POKEMON
+        ========================== -->
+
+        <section
+            id="pokemon-container"
+            class="pokemon-grid"
+        >
+        </section>
+
+
+        <!-- =========================
+             MESSAGE AUCUN RESULTAT
+        ========================== -->
+
+        <div
+            id="no-result"
+            class="no-result hidden"
+        >
+
+            <h2>
+                Aucun Pokémon trouvé
+            </h2>
+
+            <p>
+                Essaie avec un autre nom ou un autre type.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Pokédex
+        </div>
+
+        <p>
+            Projet étudiant — Pokédex interactif
+        </p>
+
+        <p>
+            Données fournies par la PokéAPI
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/theme.js"></script>
+<script src="js/pokemon.js"></script>
+
+</body>
+
+</html>
+```
