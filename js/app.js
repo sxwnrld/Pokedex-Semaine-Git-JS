@@ -4,7 +4,7 @@ const traductionTypes = {
     fire: "feu",
     water: "eau",
     grass: "plante",
-    electric: "electrik",
+    electric: "electrique",
     normal: "normal",
     ice: "glace",
     fighting: "combat",
